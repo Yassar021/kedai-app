@@ -24,12 +24,12 @@ const HomeUser = () => {
                 </Center>
 
                 <SimpleGrid columns={{base:1,md:2}} spacing='20px'>
-                    <Link href='#' _active={{textDecoration:'none'}}>
+                    <Link href='/ListMenusUser' _active={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/coffee.png" alt='Coffee' />
-                            <Box mt='0px !important' w='242px' h='40px' bgColor='#D9D9D9'>
+                            <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='4px' fontSize={{base:'18px',lg:'28px'}}>Coffee</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Coffee</Text>
                                 </Center>
                             </Box>
                         </VStack>
@@ -37,9 +37,9 @@ const HomeUser = () => {
                     <Link href='#' _active={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/tea.png" alt='Tea' />
-                            <Box mt='0px !important' w='242px' h='40px' bgColor='#D9D9D9'>
+                            <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='4px' fontSize={{base:'18px',lg:'28px'}}>Tea</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Tea</Text>
                                 </Center>
                             </Box>
                         </VStack>
@@ -47,9 +47,9 @@ const HomeUser = () => {
                     <Link href='#' _active={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/milkshake.png" alt='Milk' />
-                            <Box mt='0px !important' w='242px' h='40px' bgColor='#D9D9D9'>
+                            <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='4px' fontSize={{base:'18px',lg:'28px'}}>Milk</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Milk</Text>
                                 </Center>
                             </Box>
                         </VStack>
@@ -57,9 +57,9 @@ const HomeUser = () => {
                     <Link href='#' _active={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/food.png" alt='Food' />
-                            <Box mt='0px !important' w='242px' h='40px' bgColor='#D9D9D9'>
+                            <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='4px' fontSize={{base:'18px',lg:'28px'}}>Food</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Food</Text>
                                 </Center>
                             </Box>
                         </VStack>
