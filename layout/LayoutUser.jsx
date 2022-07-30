@@ -8,7 +8,7 @@ const LayoutUser = ({pageTitle,children}) => {
                 <title>Home - {pageTitle}</title>
             </Head>
 
-            <Box bgColor={'#F4F4F4'} py='40px' px={{base:'20px',md:'120px'}}>
+            <Box bgColor={'#fff'} py='40px' px={{base:'20px',md:'120px'}}>
                 {children}
             </Box>
         </>

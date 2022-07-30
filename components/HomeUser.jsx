@@ -9,7 +9,7 @@ const HomeUser = () => {
                     <Box w='310px'>
                         <Text fontSize={{base:'21px',lg:'32px'}} fontWeight={'600'} color={'#000'}>Selamat Datang di Kedai Kilometer 17</Text>
                     </Box>
-                    <Link href={'#'} mx='auto'>
+                    <Link href={'/KeranjangUser'} mx='auto'>
                         <Stack>
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 16L16 14C16 9.58172 19.5817 6 24 6V6C28.4183 6 32 9.58172 32 14L32 16" stroke="#EF7B45" strokeWidth="2" strokeLinecap="round"/>
