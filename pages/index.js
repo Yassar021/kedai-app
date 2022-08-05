@@ -6,7 +6,7 @@ import HomeKasir from "../components/Kasir/HomeKasir"
 const Index = () => {
   return (
     <>
-      <HomeKasir />
+      <HomeUser />
     </>
   )
 }
