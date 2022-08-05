@@ -48,7 +48,7 @@ const Menus = () => {
                         <Button bgColor={'#D84727'} color={'#fff'} mr={3} onClick={onClose}>
                         Close
                         </Button>
-                        <Button bgColor={'#042A2B'} color='#fff'>Masukkan Ke Keranjang</Button>
+                        <Button bgColor={'#042A2B'} color='#fff'>Masuk Keranjang</Button>
                     </ModalFooter>
                     </ModalContent>
                 </Modal>
