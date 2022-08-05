@@ -5,10 +5,10 @@ const LayoutUser = ({pageTitle,children}) => {
     return (
         <>
             <Head>
-                <title>Home - {pageTitle}</title>
+                <title>Kedai App - {pageTitle}</title>
             </Head>
 
-            <Box bgColor={'#fff'} py='40px' px={{base:'20px',md:'120px'}}>
+            <Box h={'100vh'} bgColor={'#fff'} py='40px' px={{base:'20px',md:'120px'}}>
                 {children}
             </Box>
         </>

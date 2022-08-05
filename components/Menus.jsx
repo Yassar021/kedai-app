@@ -9,7 +9,7 @@ const Menus = () => {
         <Box>
             <Image w='240px' h='240px' src='/coffee.png' alt='Vanilla Latte' />
             <Flex justifyContent={'space-between'} mt='0px !important' w='240px' h={'60px'} px='10px' bgColor='#D9D9D9'>
-                <Text mt='10px' fontSize={'18px'}>Vanilla Latte</Text>
+                <Text mt='10px' fontSize={'18px'} color={'#042A2B'}>Vanilla Latte</Text>
                 <Button mt='10px' onClick={onOpen}>
                     <Stack>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

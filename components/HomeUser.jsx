@@ -20,7 +20,7 @@ const HomeUser = () => {
                 </Flex>
 
                 <Center mt='73px' mb='40px'>
-                    <Text fontSize={{base:'20px',lg:'32px'}} fontWeight='500'>Silahkan Pilih Menu : </Text>
+                    <Text fontSize={{base:'20px',lg:'32px'}} fontWeight='500' color={'#042A2B'}>Silahkan Pilih Menu : </Text>
                 </Center>
 
                 <SimpleGrid columns={{base:1,md:2}} spacing='20px'>
@@ -29,7 +29,7 @@ const HomeUser = () => {
                             <Image w='242px' h='240px'  src="/coffee.png" alt='Coffee' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Coffee</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}} color={'#042A2B'}>Coffee</Text>
                                 </Center>
                             </Box>
                         </VStack>
@@ -39,7 +39,7 @@ const HomeUser = () => {
                             <Image w='242px' h='240px'  src="/tea.png" alt='Tea' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Tea</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}} color={'#042A2B'}>Tea</Text>
                                 </Center>
                             </Box>
                         </VStack>
@@ -49,7 +49,7 @@ const HomeUser = () => {
                             <Image w='242px' h='240px'  src="/milkshake.png" alt='Milk' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Milk</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}} color={'#042A2B'}>Milk</Text>
                                 </Center>
                             </Box>
                         </VStack>
@@ -59,7 +59,7 @@ const HomeUser = () => {
                             <Image w='242px' h='240px'  src="/food.png" alt='Food' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
-                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}}>Food</Text>
+                                    <Text mt='10px' fontSize={{base:'18px',lg:'24px'}} color={'#042A2B'}>Food</Text>
                                 </Center>
                             </Box>
                         </VStack>

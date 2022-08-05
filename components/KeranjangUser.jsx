@@ -16,7 +16,7 @@ const KeranjangUser = () => {
                         Harga
                     </Text>
                 </Flex>
-                <Flex my='20px' direction={'row'} justifyContent='space-between'>
+                <Flex my='20px' direction={'row'} justifyContent='space-between' color={'#042A2B'}>
                     <OrderedList spacing={2}>
                         <ListItem>Vanilla Latte (Ice)</ListItem>
                         <ListItem>Nasi Goren</ListItem>
