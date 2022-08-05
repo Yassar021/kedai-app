@@ -24,7 +24,7 @@ const HomeUser = () => {
                 </Center>
 
                 <SimpleGrid columns={{base:1,md:2}} spacing='20px'>
-                    <Link href='/ListMenusUser' _active={{textDecoration:'none'}}>
+                    <Link href='/ListMenusUser' _hover={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/coffee.png" alt='Coffee' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
@@ -34,7 +34,7 @@ const HomeUser = () => {
                             </Box>
                         </VStack>
                     </Link>
-                    <Link href='#' _active={{textDecoration:'none'}}>
+                    <Link href='#' _hover={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/tea.png" alt='Tea' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
@@ -44,7 +44,7 @@ const HomeUser = () => {
                             </Box>
                         </VStack>
                     </Link>
-                    <Link href='#' _active={{textDecoration:'none'}}>
+                    <Link href='#' _hover={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/milkshake.png" alt='Milk' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
@@ -54,7 +54,7 @@ const HomeUser = () => {
                             </Box>
                         </VStack>
                     </Link>
-                    <Link href='#' _active={{textDecoration:'none'}}>
+                    <Link href='#' _hover={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/food.png" alt='Food' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
