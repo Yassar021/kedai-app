@@ -48,7 +48,17 @@ const Menus = () => {
                         <Button bgColor={'#D84727'} color={'#fff'} mr={3} onClick={onClose}>
                         Close
                         </Button>
-                        <Button bgColor={'#042A2B'} color='#fff'>Masuk Keranjang</Button>
+                        <Button 
+                            bgColor={'#042A2B'}
+                            color='#fff'
+                            _hover={{ bg: '#042A2B' }}
+                            _active={{
+                                bg: '#042A2B',
+                                transform: 'scale(0.98)'
+                            }}
+                            >
+                                Masuk Keranjang
+                        </Button>
                     </ModalFooter>
                     </ModalContent>
                 </Modal>
