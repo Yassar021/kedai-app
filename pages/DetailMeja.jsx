@@ -1,4 +1,4 @@
-import DetailMeja from '../components/Kasir/detailMeja'
+import DetailMeja from '../components/Kasir/DetailMeja'
 
 const DetailMejaKasir = () => {
     return (
