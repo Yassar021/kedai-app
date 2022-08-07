@@ -8,6 +8,7 @@ const HomeUser = () => {
                 <Flex gap={{base:'40px',lg:'200px'}} justifyContent='center'>
                     <Box w='310px'>
                         <Text fontSize={{base:'21px',lg:'32px'}} fontWeight={'600'} color={'#000'}>Selamat Datang di Kedai Kilometer 17</Text>
+                        <Text mt={'10px'} fontSize={{base:'18px',lg:'26px'}} fontWeight={'400'} color={'#000'}>Meja 1</Text>
                     </Box>
                     <Link href={'/KeranjangUser'} mx='auto'>
                         <Stack>

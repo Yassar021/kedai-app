@@ -19,7 +19,7 @@ const MetodePembayaran = () => {
                     </Stack>
                 </Center>
                 <VStack mt='60px' spacing='20px'>
-                    <Link href='/PembayaranLoading' _hover={{textDecor:'none'}}>
+                    <Link href='/PembayaranSukses' _hover={{textDecor:'none'}}>
                         <Button
                             size='md'
                             height='50px'
