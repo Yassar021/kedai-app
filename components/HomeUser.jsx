@@ -1,14 +1,22 @@
-import { Box, Center, Container, Flex, HStack, Image, Link, SimpleGrid, Stack, Text, textDecoration, VStack } from "@chakra-ui/react"
+import { Box, Button, Center, Container, Flex, HStack, Image, Link, SimpleGrid, Stack, Text, textDecoration, VStack } from "@chakra-ui/react"
+import { QR_TYPE, useDispatchQR, useQR } from "../hooks/qr"
 import LayoutUser from "../layout/LayoutUser"
 
 const HomeUser = () => {
+    const qr = useQR();
+    const dispatch = useDispatchQR();
+
+    const handleReScan = () => 
+        dispatch({type: QR_TYPE.REMOVE});
+
     return (
         <LayoutUser pageTitle={'Welcome'}>
             <Container maxW='4xl'>
-                <Flex gap={{base:'40px',lg:'200px'}} justifyContent='center'>
+                <Flex gap={{base:'20px',lg:'200px'}} justifyContent='center'>
                     <Box w='310px'>
+                        <Button onClick={handleReScan} colorScheme='red'>Scan Ulang QR Code</Button>
                         <Text fontSize={{base:'21px',lg:'32px'}} fontWeight={'600'} color={'#000'}>Selamat Datang di Kedai Kilometer 17</Text>
-                        <Text mt={'10px'} fontSize={{base:'18px',lg:'26px'}} fontWeight={'400'} color={'#000'}>Meja 1</Text>
+                        <Text mt={'10px'} fontSize={{base:'18px',lg:'26px'}} fontWeight={'400'} color={'#000'}>Meja {qr}</Text>
                     </Box>
                     <Link href={'/KeranjangUser'} mx='auto'>
                         <Stack>
@@ -25,9 +33,9 @@ const HomeUser = () => {
                 </Center>
 
                 <SimpleGrid columns={{base:1,md:2}} spacing='20px'>
-                    <Link href='/ListMenusUser' _hover={{textDecoration:'none'}}>
+                    <Link href='/ListMenusUser/coffee' _hover={{textDecoration:'none'}}>
                         <VStack>
-                            <Image w='242px' h='240px'  src="/coffee.png" alt='Coffee' />
+                            <Image w='242px !important' h='240px'  src="/coffee.png" alt='Coffee' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
                                 <Center>
                                     <Text mt='10px' fontSize={{base:'18px',lg:'24px'}} color={'#042A2B'}>Coffee</Text>
@@ -35,7 +43,7 @@ const HomeUser = () => {
                             </Box>
                         </VStack>
                     </Link>
-                    <Link href='#' _hover={{textDecoration:'none'}}>
+                    <Link href='/ListMenusUser/tea' _hover={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/tea.png" alt='Tea' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
@@ -45,7 +53,7 @@ const HomeUser = () => {
                             </Box>
                         </VStack>
                     </Link>
-                    <Link href='#' _hover={{textDecoration:'none'}}>
+                    <Link href='/ListMenusUser/milk' _hover={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/milkshake.png" alt='Milk' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>
@@ -55,7 +63,7 @@ const HomeUser = () => {
                             </Box>
                         </VStack>
                     </Link>
-                    <Link href='#' _hover={{textDecoration:'none'}}>
+                    <Link href='/ListMenusUser/food' _hover={{textDecoration:'none'}}>
                         <VStack>
                             <Image w='242px' h='240px'  src="/food.png" alt='Food' />
                             <Box mt='0px !important' w='242px' h='60px' bgColor='#D9D9D9'>

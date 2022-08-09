@@ -1,11 +1,10 @@
 import { Box, Center, Container, Text, VStack } from "@chakra-ui/react"
 import LayoutUser from "../layout/LayoutUser"
 
-import React, {useState} from 'react';
+import React from 'react';
 import { QrReader } from 'react-qr-reader';
 
-const ScanBarcode = () => {
-    const [data, setData] = useState('No result');
+const ScanBarcode = ({data, setData}) => {
     return (
         <LayoutUser pageTitle={'Scan Barcode'}>
             <Container maxW='2xl' textAlign={'center'}>
@@ -15,13 +14,9 @@ const ScanBarcode = () => {
 
                     <Box>
                     <QrReader
-                      onResult={(result, error) => {
-                        if (!!result) {
+                      onResult={(result) => {
+                        if (result) {
                           setData(result?.text);
-                        }
-
-                        if (!!error) {
-                          console.info(error);
                         }
                       }}
                       style={{ width: '100%' }}

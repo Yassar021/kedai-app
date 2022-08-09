@@ -1,7 +1,7 @@
 import LayoutKasir from "../../layout/LayoutKasir";
 import {Center, Flex, Text, Container, OrderedList,ListItem, List, Link, VStack,Button} from '@chakra-ui/react'
 
-const DetailMeja = () => {
+const DetailMeja = ({id}) => {
     return(
         <LayoutKasir pageTitle={'Detail Meja'}>
             <Center mb='40px'>
@@ -55,7 +55,7 @@ const DetailMeja = () => {
                             Verifikasi Pembayaran
                         </Button>
                     </Link>
-                    <Link href='/' _hover={{textDecor:'none'}}>
+                    <Link href='/HomeKasir' _hover={{textDecor:'none'}}>
                         <Button
                             size='md'
                             height='50px'

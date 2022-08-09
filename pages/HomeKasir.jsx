@@ -1,12 +1,11 @@
-import axios from "@/../lib/axios"
-import useSWR from "swr"
+import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import Link from "next/link";
+import useSWR from "swr";
+import Meja from "../components/Kasir/Meja";
+import LayoutKasir from "../layout/LayoutKasir";
+import axios from "../lib/axios";
 
-const { default: LayoutKasir } = require("@/../layout/LayoutKasir")
-const { Flex, Text, SimpleGrid, Button } = require("@chakra-ui/react")
-const { default: Link } = require("next/link")
-const { default: Meja } = require("./Meja")
-
-const HomeKasir = () => {
+const HomeKasirPage = () => {
     const {data} = useSWR('/api/tables', () =>  axios.get('/api/tables').then(res => res.data));
 
     return (
@@ -14,7 +13,7 @@ const HomeKasir = () => {
             <Flex mb='40px' direction={'row'} justifyContent='space-between'>
                 <Text fontSize={{base:'26px',md:'32px'}} fontWeight='400' color='#000'>Pilih Meja</Text>
                 <Link href='/ListMenuKasir'>
-                    <Text fontSize={{base:'22px',md:'32px'}} fontWeight='400' color='#000'>List Menu</Text>
+                    <Text fontSize={{base:'26px',md:'32px'}} fontWeight='400' color='#000'>List Menu</Text>
                 </Link>
             </Flex>
 
@@ -27,4 +26,4 @@ const HomeKasir = () => {
     )
 }
 
-export default HomeKasir
+export default HomeKasirPage

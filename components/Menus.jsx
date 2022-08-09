@@ -1,15 +1,35 @@
 import { Box, Button, Checkbox, Flex, HStack, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, useDisclosure } from "@chakra-ui/react"
-import { useRef } from "react"
+import { useRef, useState } from "react"
+import { CART_TYPE, useDispatchCart } from "../hooks/cart"
 
-const Menus = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const finalRef = useRef(null)
+const Menus = ({item}) => {
+    const dispatch = useDispatchCart();
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const finalRef = useRef(null);
+    const [ice, setIce] = useState(false);
+    const [hot, setHot] = useState(false);
+    const [total, setTotal] = useState(1);
+
+    const handleCart = () => {
+        dispatch({
+            type: CART_TYPE.SET,
+            payload: {
+                id: item.id,
+                name: `${item.name}(${ice ? 'ice' : ''}${hot ? 'hot' : ''})`,
+                total,
+                price: ice ? item.icePrice : hot ? item.hotPrice : 0,
+            },
+        });
+        setHot(false);
+        setIce(false);
+        onClose();
+    }
 
     return(
         <Box>
-            <Image w='240px' h='240px' src='/coffee.png' alt='Vanilla Latte' />
+            <Image w='240px' h='240px' src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/storage/images/${item.picture}`} alt='Vanilla Latte' />
             <Flex justifyContent={'space-between'} mt='0px !important' w='240px' h={'60px'} px='10px' bgColor='#D9D9D9'>
-                <Text mt='10px' fontSize={'18px'} color={'#042A2B'}>Vanilla Latte</Text>
+                <Text mt='10px' fontSize={'18px'} color={'#042A2B'}>{item?.name}</Text>
                 <Button mt='10px' onClick={onOpen}>
                     <Stack>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,21 +45,29 @@ const Menus = () => {
                     <ModalCloseButton />
                     <ModalBody>
                         <Stack spacing={'20px'} direction='column'>
-                            <HStack spacing='10'>
-                                <Checkbox colorScheme='green'>
-                                    Hot
-                                </Checkbox>
-                                <Text fontWeight={'600'}>15K</Text>
-                            </HStack>
-                            <HStack spacing='10'>
-                                <Checkbox colorScheme='green'>
-                                    Ice
-                                </Checkbox>
-                                <Text fontWeight={'600'}>18K</Text>
-                            </HStack>
+                            {
+                                (item?.hotPrice !== 0 ) && (
+                                    <HStack spacing='10'>
+                                        <Checkbox onChange={() => setHot(!hot)} colorScheme='green'>
+                                            Hot
+                                        </Checkbox>
+                                        <Text fontWeight={'600'}>{item?.hotPrice.toLocaleString()}</Text>
+                                    </HStack>
+                                )
+                            }
+                            {
+                                (item?.icePrice !== 0) && (
+                                    <HStack spacing='10'>
+                                        <Checkbox onChange={() => setIce(!ice)} colorScheme='green'>
+                                            Ice
+                                        </Checkbox>
+                                        <Text fontWeight={'600'}>{item?.icePrice.toLocaleString()}</Text>
+                                    </HStack>
+                                )
+                            }
                             <HStack spacing={'6'}>
                                 <Text fontWeight={'600'}>Jumlah </Text>
-                                <Input type='tel' placeholder='Masukkan disini' />
+                                <Input value={total} onChange={(e) => setTotal(e.target.value)} type='tel' placeholder='Masukkan disini' />
                             </HStack>
                         </Stack>
                     </ModalBody>
@@ -49,6 +77,7 @@ const Menus = () => {
                         Close
                         </Button>
                         <Button 
+                            onClick={handleCart}
                             bgColor={'#042A2B'}
                             color='#fff'
                             _hover={{ bg: '#042A2B' }}

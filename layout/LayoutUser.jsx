@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
 import Head from "next/head"
 
 const LayoutUser = ({pageTitle,children}) => {
@@ -8,7 +8,7 @@ const LayoutUser = ({pageTitle,children}) => {
                 <title>Kedai App - {pageTitle}</title>
             </Head>
 
-            <Box h={'100vh'} bgColor={'#fff'} py='40px' px={{base:'20px',md:'120px'}}>
+            <Box bgColor={'#fff'} py='40px' px={{base:'10px',md:'120px'}}>
                 {children}
             </Box>
         </>

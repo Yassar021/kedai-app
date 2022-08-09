@@ -1,32 +1,33 @@
-import { Box, Button, Center, Container, Divider, Flex, Link, List, ListItem, OrderedList, Stack, Text, VStack } from "@chakra-ui/react"
-import { useRouter } from "next/router";
-import { CART_TYPE, useCart, useDispatchCart } from "../hooks/cart";
-import { useQR } from "../hooks/qr";
-import LayoutUser from "../layout/LayoutUser"
-import axios from "../lib/axios";
+import DetailMeja from "@/../components/Kasir/DetailMeja"
+import LayoutKasir from "@/../layout/LayoutKasir";
+import axios from "@/../lib/axios";
+import { Button, Center, Container, Flex, List, ListItem, OrderedList, Text, VStack } from "@chakra-ui/react";
+import Link from "next/link";
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react";
+import useSWR from "swr";
 
-const KeranjangUser = () => {
+const DetailMejaKasir = () => {
     const router = useRouter();
-    const cart = useCart();
-    const dispatch = useDispatchCart();
-    const qr = useQR();
+    const {id} = router.query;
+    const {data} = useSWR(`/api/transaction/${id}`, () => axios.get(`/api/transaction/${id}`).then(res => res.data));
+    const [cart, setCart] = useState([]);
 
-    const handleCheckout = async () => {
-        if(qr && cart) {
-            const {data} = await axios.post('/api/transactions',{
-                status: 'menunggu',
-                table_id: qr,
-                item: JSON.stringify(cart),
+    const handleCart = async () => {
+        if(data) {
+            const res = await axios.put(`/api/transactions/${data.id}`,{
+                status: 'selesai',
             });
-            dispatch({
-                type: CART_TYPE.REMOVE,
-            });
-            router.replace(`/PembayaranLoading/${data.id}`);
+            router.replace(`/PembayaranLoading/${res.data.id}`);
         }
     }
 
-    return(
-        <LayoutUser pageTitle={'Keranjang Pesanan'}>
+    useEffect(() => {
+        if(data) setCart(JSON.parse(data.item));
+    }, [data]);
+
+    return (
+        <LayoutKasir pageTitle={'Detail Meja'}>
             <Center mb='40px'>
                 <Text fontSize={{base:'26px',md:'32px'}} fontWeight='600' color='#000'>Keranjang Pesanan</Text>
             </Center>
@@ -63,7 +64,7 @@ const KeranjangUser = () => {
                 </Flex>
                 <VStack mt='60px' spacing='20px'>
                     <Button
-                        onClick={handleCheckout}
+                        onClick={handleCart}
                         size='md'
                         height='50px'
                         width='240px'
@@ -77,9 +78,9 @@ const KeranjangUser = () => {
                             transform: 'scale(0.98)'
                         }}
                         >
-                        Checkout Sekarang
+                        Verifikasi Pembayaran
                     </Button>
-                    <Link href='/' _hover={{textDecor:'none'}}>
+                    <Link href='/HomeKasir' _hover={{textDecor:'none'}}>
                         <Button
                             size='md'
                             height='50px'
@@ -94,13 +95,13 @@ const KeranjangUser = () => {
                                 transform: 'scale(0.98)'
                             }}
                             >
-                            Kembali Ke Menu
+                            Kembali Pilih Meja
                         </Button>
                     </Link>
                 </VStack>
             </Container>
-        </LayoutUser>
+        </LayoutKasir>
     )
 }
 
-export default KeranjangUser
+export default DetailMejaKasir
