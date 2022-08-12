@@ -88,6 +88,11 @@ const ListMenuKasir = () => {
         }
     }
 
+    const handleAddMenu = () => {
+        setIsEdit(false);
+        onOpen();
+    }
+
     return(
         <LayoutKasir pageTitle={'List Menu'}>
             <Flex mb='40px' direction={'row'} justifyContent='space-between'>
@@ -95,7 +100,7 @@ const ListMenuKasir = () => {
                     <Text fontSize={{base:'18px',md:'32px'}} fontWeight='400' color='#000'>Kembali</Text>
                 </Link>
                 <Box>
-                    <Button colorScheme={'linkedin'} onClick={onOpen}>Tambah Menu</Button>
+                    <Button colorScheme={'linkedin'} onClick={handleAddMenu}>Tambah Menu</Button>
                         <Modal
                             initialFocusRef={initialRef}
                             finalFocusRef={finalRef}
