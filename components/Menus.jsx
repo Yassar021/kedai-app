@@ -69,6 +69,14 @@ const Menus = ({item}) => {
                                 <Text fontWeight={'600'}>Jumlah </Text>
                                 <Input value={total} onChange={(e) => setTotal(e.target.value)} type='tel' placeholder='Masukkan disini' />
                             </HStack>
+
+                            <HStack spacing={'6'}>
+                                <Text fontWeight={'600'}>Note </Text>
+                                <Input type='text' placeholder='' />
+                            </HStack>
+                            <HStack spacing={'6'} mt='10px'>
+                                <Text fontWeight={'600'}>Sisa Persediaan : 6</Text>
+                            </HStack>
                         </Stack>
                     </ModalBody>
 
