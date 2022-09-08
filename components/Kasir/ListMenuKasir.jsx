@@ -96,8 +96,8 @@ const ListMenuKasir = () => {
     return(
         <LayoutKasir pageTitle={'List Menu'}>
             <Flex mb='40px' direction={'row'} justifyContent='space-between'>
-                <Link href='/HomeKasir'>
-                    <Text fontSize={{base:'18px',md:'32px'}} fontWeight='400' color='#000'>Kembali</Text>
+                <Link href='/HomeKasir' _hover={{textDecor: 'none'}}>
+                    <Text fontSize={{base:'18px',md:'24px'}} fontWeight='400' color='#000'>Kembali</Text>
                 </Link>
                 <Box>
                     <Button colorScheme={'linkedin'} onClick={handleAddMenu}>Tambah Menu</Button>
