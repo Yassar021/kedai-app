@@ -9,6 +9,7 @@ const Menus = ({item}) => {
     const [ice, setIce] = useState(false);
     const [hot, setHot] = useState(false);
     const [total, setTotal] = useState(1);
+    const [note, setNote] = useState('');
 
     const handleCart = () => {
         dispatch({
@@ -18,6 +19,7 @@ const Menus = ({item}) => {
                 name: `${item.name}(${ice ? 'ice' : ''}${hot ? 'hot' : ''})`,
                 total,
                 price: ice ? item.icePrice : hot ? item.hotPrice : 0,
+                note,
             },
         });
         setHot(false);
@@ -72,10 +74,10 @@ const Menus = ({item}) => {
 
                             <HStack spacing={'6'}>
                                 <Text fontWeight={'600'}>Note </Text>
-                                <Input type='text' placeholder='' />
+                                <Input value={note} onChange={(e) => setNote(e.target.value)} type='text' placeholder='' />
                             </HStack>
                             <HStack spacing={'6'} mt='10px'>
-                                <Text fontWeight={'600'}>Sisa Persediaan : 6</Text>
+                                <Text fontWeight={'600'}>Sisa Persediaan : {item?.stok}</Text>
                             </HStack>
                         </Stack>
                     </ModalBody>

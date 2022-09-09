@@ -43,7 +43,7 @@ const DetailMejaKasir = () => {
                 <Flex my='20px' direction={'row'} justifyContent='space-between' color={'#042A2B'}>
                     <OrderedList spacing={2}>
                         {
-                            cart?.map((item, i) => <ListItem key={i}>{item.name} x {item.total}</ListItem> )
+                            cart?.map((item, i) => <ListItem key={i}>{item.name} x {item.total} {item.note?`(${item.note})`: '' }</ListItem> )
                         }
                     </OrderedList>
                     <List spacing={2}>
