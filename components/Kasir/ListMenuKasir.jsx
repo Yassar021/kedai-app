@@ -20,6 +20,7 @@ const ListMenuKasir = () => {
     const [loading, setLoading] = useState();
     const [isEdit, setIsEdit] = useState(false);
     const [id, setId] = useState();
+    const [stok, setStok] = useState(1); 
 
     const handleSubmit = async () => {
         setLoading({save:true});
@@ -29,6 +30,7 @@ const ListMenuKasir = () => {
         formData.append('icePrice', icePrice);
         formData.append('category', category);
         formData.append('picture', picture);
+        formData.append('stok', stok);
 
         try {
             await axios.post('/api/products', formData, {
@@ -50,6 +52,7 @@ const ListMenuKasir = () => {
         setIcePrice(item.icePrice);
         setCategory(item.category);
         setId(item.id);
+        setStok(item.stok);
     }
 
     const handleEditSubmit = async () => {
@@ -60,6 +63,7 @@ const ListMenuKasir = () => {
         formData.append('hotPrice', hotPrice);
         formData.append('icePrice', icePrice);
         formData.append('category', category);
+        formData.append('stok', stok);
         formData.append('_method', 'put');
         if (picture) formData.append('picture', picture);
 
@@ -136,7 +140,6 @@ const ListMenuKasir = () => {
                                         <option>Food</option>
                                     </Select>
                                 </FormControl>
-
                                 <FormControl mt={4}>
                                     <FormLabel>Upload Foto Produk</FormLabel>
                                     <Input placeholder='foto-produk' type={'file'} />
@@ -167,6 +170,7 @@ const ListMenuKasir = () => {
                                 <Th>Kategori</Th>
                                 <Th>Harga</Th>
                                 <Th>Foto Produk</Th>
+                                <Th>Stok</Th>
                                 <Th>Action</Th>
                             </Tr>
                             </Thead>
@@ -180,6 +184,7 @@ const ListMenuKasir = () => {
                                     <Td> 
                                         <Image src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/storage/images/${item.picture}`} width='100px' height='100px' alt='' />
                                     </Td>
+                                    <Td>{item.stok}</Td>
                                     <Td> 
                                         <VStack spacing='10px'>
                                             <Box>
@@ -232,6 +237,11 @@ const ListMenuKasir = () => {
                             <option value='tea'>Tea</option>
                             <option value='food'>Food</option>
                         </Select>
+                    </FormControl>
+
+                    <FormControl mt={4}>
+                        <FormLabel>Stok Persediaan</FormLabel>
+                        <Input value={stok} onChange={(e) => setStok(e.target.value)} type={'number'} />
                     </FormControl>
 
                     <FormControl mt={4}>
