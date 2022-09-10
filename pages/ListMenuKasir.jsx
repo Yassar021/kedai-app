@@ -31,8 +31,9 @@ const ListMenuKasirPage = () => {
         formData.append('category', category);
         formData.append('picture', picture);
         formData.append('stok', stok);
-
+        const csrf = () => axios.get('/sanctum/csrf-cookie')
         try {
+            await csrf();
             await axios.post('/api/products', formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             })
@@ -66,8 +67,9 @@ const ListMenuKasirPage = () => {
         formData.append('stok', stok);
         formData.append('_method', 'put');
         if (picture) formData.append('picture', picture);
-
+        const csrf = () => axios.get('/sanctum/csrf-cookie')
         try {
+            await csrf();
             await axios.post(`/api/products/${id}`, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             })
@@ -82,7 +84,9 @@ const ListMenuKasirPage = () => {
     const deleteData = async (id) => {
         if (confirm('Apakah yakin hapus data ?')) {
             setLoading({delete:true});
+            const csrf = () => axios.get('/sanctum/csrf-cookie')
             try {
+                await csrf();
                 await axios.delete(`/api/products/${id}`)
                 mutate();
                 setLoading();

@@ -12,7 +12,9 @@ const KeranjangUser = () => {
     const qr = useQR();
 
     const handleCheckout = async () => {
+        const csrf = () => axios.get('/sanctum/csrf-cookie')
         if(qr && cart) {
+            await csrf();
             const {data} = await axios.post('/api/transactions',{
                 status: 'menunggu',
                 table_id: qr,

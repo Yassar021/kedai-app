@@ -14,7 +14,9 @@ const DetailMejaKasir = () => {
     const [cart, setCart] = useState([]);
 
     const handleCart = async () => {
+        const csrf = () => axios.get('/sanctum/csrf-cookie')
         if(data) {
+            await csrf();
             const res = await axios.put(`/api/transactions/${data.id}`,{
                 status: 'selesai',
             });
