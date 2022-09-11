@@ -16,7 +16,7 @@ const Menus = ({item, category}) => {
             type: CART_TYPE.SET,
             payload: {
                 id: item.id,
-                name: `${item.name}(${ice ? 'ice' : ''}${hot ? 'hot' : ''})`,
+                name: `${item.name}(${ice ? category==='food' ? 'special' : 'ice' : ''}${hot ? category==='food' ? 'biasa' : 'hot' : ''})`,
                 total,
                 price: ice ? item.icePrice : hot ? item.hotPrice : 0,
                 note,
