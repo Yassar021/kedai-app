@@ -2,7 +2,7 @@ import { Box, Button, Checkbox, Flex, HStack, Image, Input, Modal, ModalBody, Mo
 import { useRef, useState } from "react"
 import { CART_TYPE, useDispatchCart } from "../hooks/cart"
 
-const Menus = ({item}) => {
+const Menus = ({item, category}) => {
     const dispatch = useDispatchCart();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const finalRef = useRef(null);
@@ -48,20 +48,20 @@ const Menus = ({item}) => {
                     <ModalBody>
                         <Stack spacing={'20px'} direction='column'>
                             {
-                                (item?.hotPrice !== 0 ) && (
+                                (item?.hotPrice != 0 ) && (
                                     <HStack spacing='10'>
                                         <Checkbox onChange={() => setHot(!hot)} colorScheme='green'>
-                                            Hot
+                                            {category==='food'?'Biasa':'Hot'}
                                         </Checkbox>
                                         <Text fontWeight={'600'}>{item?.hotPrice.toLocaleString()}</Text>
                                     </HStack>
                                 )
                             }
                             {
-                                (item?.icePrice !== 0) && (
+                                (item?.icePrice != 0) && (
                                     <HStack spacing='10'>
                                         <Checkbox onChange={() => setIce(!ice)} colorScheme='green'>
-                                            Ice
+                                            {category==='food'?'Special':'Ice'}
                                         </Checkbox>
                                         <Text fontWeight={'600'}>{item?.icePrice.toLocaleString()}</Text>
                                     </HStack>

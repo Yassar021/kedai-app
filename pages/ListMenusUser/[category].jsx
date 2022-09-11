@@ -30,7 +30,7 @@ const ListMenusUser = () => {
 
                 <SimpleGrid mt='40px' columns={{base:1, md:2}} spacing='20px'>
                     {
-                        data?.map((item, i) => <Menus key={i} item={item} />)
+                        data?.map((item, i) => <Menus category={category} key={i} item={item} />)
                     }
                 </SimpleGrid>
             </Container>
