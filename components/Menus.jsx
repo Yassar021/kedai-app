@@ -16,9 +16,9 @@ const Menus = ({item, category}) => {
             type: CART_TYPE.SET,
             payload: {
                 id: item.id,
-                name: `${item.name}(${ice ? category==='food' ? 'special' : 'ice' : ''}${hot ? category==='food' ? 'biasa' : 'hot' : ''})`,
+                name: `${item.name} ${ice ? category==='food' ? '(special)' : '(ice)' : ''}${hot ? category==='food' ? '(biasa)' : '(hot)' : ''}`,
                 total,
-                price: ice ? item.icePrice : hot ? item.hotPrice : 0,
+                price: ice ? item.icePrice : hot ? item.hotPrice : item.hotPrice != 0 ? item.hotPrice : item.icePrice != 0 ? item.icePrice : 0,
                 note,
             },
         });
@@ -48,11 +48,16 @@ const Menus = ({item, category}) => {
                     <ModalBody>
                         <Stack spacing={'20px'} direction='column'>
                             {
-                                (item?.hotPrice != 0 ) && (
+                                (item?.hotPrice != 0) && (
                                     <HStack spacing='10'>
-                                        <Checkbox onChange={() => setHot(!hot)} colorScheme='green'>
-                                            {category==='food'?'Biasa':'Hot'}
-                                        </Checkbox>
+                                        {
+                                            (item?.icePrice != 0) ? 
+                                                <Checkbox onChange={() => setHot(!hot)} colorScheme='green'>
+                                                    {category==='food'?'Biasa':'Hot'}
+                                                </Checkbox> 
+                                            :
+                                            <Text fontWeight={'600'}>Harga : Rp. </Text>
+                                        }
                                         <Text fontWeight={'600'}>{item?.hotPrice.toLocaleString()}</Text>
                                     </HStack>
                                 )
@@ -60,9 +65,14 @@ const Menus = ({item, category}) => {
                             {
                                 (item?.icePrice != 0) && (
                                     <HStack spacing='10'>
-                                        <Checkbox onChange={() => setIce(!ice)} colorScheme='green'>
-                                            {category==='food'?'Special':'Ice'}
-                                        </Checkbox>
+                                        {
+                                          (item?.hotPrice != 0) ?
+                                            <Checkbox onChange={() => setIce(!ice)} colorScheme='green'>
+                                                {category==='food'?'Special':'Ice'}
+                                            </Checkbox>
+                                            :
+                                            <Text fontWeight={'600'}>Harga : Rp. </Text>
+                                        }
                                         <Text fontWeight={'600'}>{item?.icePrice.toLocaleString()}</Text>
                                     </HStack>
                                 )
